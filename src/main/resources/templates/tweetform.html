@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:color="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome User!</title>
+</head>
+
+<body style="color: aqua">
+<img src="https://i.kinja-img.com/gawker-media/image/upload/s--2m8vKwCk--/c_scale,f_auto,fl_progressive,q_80,w_800/17oyh0zri482jjpg.jpg" alt="Twitter Logo">
+<h2>What's on your mind?</h2>
+<form action="#" th:action="@{/process}" th:object="${tweets}" method="post">
+    Content:<input type="text" th:field="*{content}" />
+    <span th:if="${#fields.hasErrors('content')}"
+          th:errors="*{content}"></span><br />
+    Posted Date:<input type="datetime-local" th:field="*{posteddate}" />
+    <span th:if="${#fields.hasErrors('posteddate')}"
+          th:errors="*{posteddate}"></span><br />
+    Sent By:<input type="text" th:field="*{sentby}" />
+    <span th:if="${#fields.hasErrors('sentby')}"
+          th:errors="*{sentby}"></span><br />
+    <br />
+    <input type="submit" value="Post Tweet" />
+</form>
+</body>
+</html>

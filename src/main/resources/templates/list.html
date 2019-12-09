@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome Back!</title>
+</head>
+<body>
+<a href="/add">Add a Tweet</a><br/>
+<div th:each="tweets: ${tweets}">
+    <h4 th:inline="text">[[${tweets.content}]] @ [[${tweets.sentby}]]</h4>
+    <p th="date">[[${tweets.posteddate}]]</p>
+</div>
+
+</body>
+</html>
